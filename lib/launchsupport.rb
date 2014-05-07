@@ -15,7 +15,7 @@ end
 module LaunchSupport
 
   def self.launching_my_file_process file, param={}
-    if param
+    unless param.empty?
       paths = param[:load]
       paths = [paths] if paths.is_a? String
       param[:project] ||= file.split("/")[file.split("/").rindex{|x|paths.include?(x)}-1]
